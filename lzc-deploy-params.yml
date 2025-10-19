@@ -1,0 +1,12 @@
+params:
+  - id: media_dir_name_under_your_document
+    type: string
+    name: "media directory name under user document directory"
+    description: "the stash will access you data from mount point /media, you can set it to 'movies' or 'photos' and other names which exist in your Home directory"
+    default_value: "下载"
+
+locales:
+  zh:
+    media_dir_name_under_your_document:
+      name: "您文档目录的下媒体文件目录名称"
+      description: "这里填入您文档目录下的媒体目录名称,比如 “movies” 或 “photos”,stash将通过挂载点 /media访问"
