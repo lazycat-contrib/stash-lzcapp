@@ -7,8 +7,8 @@ application:
       backend: http://stash:9999/
 services:
   stash:
-    # upstream: stashapp/stash:v0.28.1
-    image: docker.1ms.run/stashapp/stash:v0.28.1
+    # upstream: stashapp/stash:v0.31.1
+    image: docker.1ms.run/stashapp/stash:v0.31.1
     environment:
       - STASH_STASH=/data/
       - STASH_GENERATED=/generated/
@@ -19,18 +19,17 @@ services:
     binds:
       - /lzcapp/document/{{.U.media_dir_name_under_your_document}}:/media
       - /lzcapp/var/config:/root/.stash
-        ## Point this at your collection.
-        ## The left side is where your collection is on your host, the right side is where it will be in stash.
+      ## Point this at your collection.
+      ## The left side is where your collection is on your host, the right side is where it will be in stash.
       - /lzcapp/var/data:/data
-        ## This is where your stash's metadata lives
+      ## This is where your stash's metadata lives
       - /lzcapp/var/metadata:/metadata
-        ## Any other cache content.
+      ## Any other cache content.
       - /lzcapp/var/cache:/cache
-        ## Where to store binary blob data (scene covers, images)
+      ## Where to store binary blob data (scene covers, images)
       - /lzcapp/var/blobs:/blobs
-        ## Where to store generated content (screenshots,previews,transcodes,sprites)
+      ## Where to store generated content (screenshots,previews,transcodes,sprites)
       - /lzcapp/var/generated:/generated
-
 ext_config:
   enable_document_access: true
   enable_media_access: true

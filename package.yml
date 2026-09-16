@@ -1,5 +1,5 @@
 package: community.lazycat.app.stash
-version: 0.28.1
+version: 0.31.1
 name: Stash
 description: "一个用 Go 语言编写的组织你的私密内容的工具"
 min_os_version: "1.5.0"
