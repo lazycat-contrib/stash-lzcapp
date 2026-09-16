@@ -1,23 +1,14 @@
-name: Stash
-package: community.lazycat.app.stash
-version: 0.28.1
-min_os_version: 1.3.8
-description: "一个用 Go 语言编写的组织你的私密内容的工具。"
-homepage: https://github.com/stashapp/stash
-author: stashapp
 application:
   subdomain: stash
   background_task: true
   multi_instance: true
-
   upstreams:
     - location: /
       backend: http://stash:9999/
 services:
   stash:
-    # stashapp/stash:v0.28.1
-    image: registry.lazycat.cloud/czyt/stashapp/stash:b0b3bfd7364fff9a
-    ontainer_name: stash
+    # upstream: stashapp/stash:v0.28.1
+    image: docker.1ms.run/stashapp/stash:v0.28.1
     environment:
       - STASH_STASH=/data/
       - STASH_GENERATED=/generated/
@@ -43,11 +34,3 @@ services:
 ext_config:
   enable_document_access: true
   enable_media_access: true
-
-locales:
-  zh:
-    name: "Stash"
-    description: "一个用 Go 语言编写的组织你的私密内容的工具"
-  en:
-    name: "Stash"
-    description: "An organizer for your porn, written in Go"

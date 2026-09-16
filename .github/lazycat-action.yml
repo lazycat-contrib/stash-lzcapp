@@ -1,0 +1,38 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/stash.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: stash
+build:
+  run_buildscript: false
+images:
+  # 主应用：上游有完整三段 SemVer tag（v0.7.0~v0.31.1），排除 latest 等别名
+  - id: stash
+    target: service
+    service: stash
+    source: stashapp/stash
+    channel: stable
+    sort: semver
+    tag_regex: '^v\d+\.\d+\.\d+$'
+    delivery:
+      mode: mirror
+
+stores:
+  official:
+    # Official store publication is intentionally disabled; publish only to Miaomiao Store.
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Stash
+    summary: "一个用 Go 语言编写的组织你的私密内容的工具"
