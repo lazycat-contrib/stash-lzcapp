@@ -1,4 +1,5 @@
 package: community.lazycat.app.stash
+license: AGPL-3.0
 version: 0.31.1
 name: Stash
 description: "一个用 Go 语言编写的组织你的私密内容的工具"
